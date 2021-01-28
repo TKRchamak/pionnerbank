@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wellcome to the bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="daboadr-login">
+        <h1 class="text-center">Wellcome To Pioneer Bank </h1>
+        <div class="loginArea">
+            <h2>Login</h2>
+            <br>
+            <input class="form-control" type="text" placeholder="Email">
+            <br>
+            <input class="form-control" type="password" placeholder="Password">
+            <br>
+            <button id="login" class="btn btn-success">Sign Up or Log In</button>
+        </div>
+    </div>
+    <div id="transection-area">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="Deposit count">
+                    <h4>Deposit</h4>
+                    <h2>$ <span id="deposit-text" >00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="Withdraw count">
+                    <h4>Withdraw</h4>
+                    <h2>$ <span>00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="Balance count">
+                    <h4>Balance</h4>
+                    <h2>$ <span id='current-balance' >00</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-md-6">
+                <div class="input-money">
+                    <h2>Deposit</h2>
+                    <br>
+                    <input id="input-deposit-amount" class="form-control" type="text" placeholder="$ amount you want to deposit">
+                    <br>
+                    <button id="depositBtn" class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-money">
+                    <h2>Withdraw</h2>
+                    <br>
+                    <input class="form-control" type="text" placeholder="$ amount you want to withdraw">
+                    <br>
+                    <button id="" class="btn btn-success">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //log in agea
+        const kajKoro = document.getElementById('login');
+        kajKoro.addEventListener('click', function(){
+            console.log('ami tomar e tomar e tomar e gan gai.');
+            const loginArea = document.getElementById('daboadr-login');
+            loginArea.style.display = "none";
+            const transectionArea=  document.getElementById('transection-area');
+            transectionArea.style.display = "block";
+        })
+
+        //deposit area
+        const depositCount = document.getElementById('depositBtn');
+        depositCount.addEventListener('click', function(){
+            console.log("ami tomar jonno aseci");
+            const depositValue = document.getElementById('input-deposit-amount').value;
+            var depositValueFinal = parseFloat(depositValue);
+            console.log('this is ', depositValueFinal);
+
+            const depositText = document.getElementById('deposit-text').innerText;
+            const depositTextNumb = parseFloat(depositText);
+            const depositNumbTotal = depositValueFinal + depositTextNumb;
+            console.log(depositNumbTotal);
+
+            document.getElementById('deposit-text').innerText = depositNumbTotal;
+            document.getElementById('input-deposit-amount').value = "";
+
+            const currentBalance = document.getElementById('current-balance').innerText;
+            const totalAccount =  parseFloat(currentBalance);
+            console.log('another',  totalAccount);
+            const balance = totalAccount + depositValueFinal;
+            console.log('this is another', balance);
+            document.getElementById('current-balance').innerText = balance;
+        })
+
+    </script>
+</body>
+</html>
